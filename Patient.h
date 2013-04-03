@@ -1,7 +1,8 @@
 #ifndef PATIENT_H
 #define	PATIENT_H
 
-#include "User.h"
+
+#include "Data.h"
 
 class Patient : public User, public Data {
 public:
@@ -35,7 +36,7 @@ public:
     PassThrough addView(PassThrough tempData, string * paramList = NULL);
 
     //search patients based on paramList and print out list
-    PassThrough searchResults(PassThrough tempData, string * paramList);
+    PassThrough searchResults(PassThrough tempData, string first, string last, string phone, int ID);
 
     //addPatient will call savePatient
     //if bool = true, call view, viewtype = null, and tempData.patient = patient just added
@@ -47,10 +48,29 @@ public:
     //if valid, save and return true, else false
     bool savePatient(PassThrough tempData, string * paramList, int patientID = 0);
 
+	
+
+
 private:
     string viewtype;
     string message;
+
     //DETERMINE DATA THAT GOES HERE
+	int IDNumber;
+	string firstName;
+	string lastName;
+	string phoneNumber;
+	string email;
+	string address;
+	string city;
+	string state;
+	string zipCode;
+	string password;
+	string insurance;
+	string policyNum;
+
+
+
 };
 
 #endif	/* PATIENT_H */

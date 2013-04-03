@@ -1,21 +1,22 @@
+/* 
+ * File:   Data.cpp
+ * Author: Steven Lowder
+ * 
+ * Created on March 30, 2013, 6:49 PM
+ */
+
 #include "Data.h"
 
 Data::Data() {
 }
 
+Data::Data(const Data& orig) {
+}
+
 Data::~Data() {
 }
 
-string Data::getScreenName(){
+Data::getScreenName(){
     return screenName;
 }
 
-PassThrough Data::logout(PassThrough tempData){
-    tempData.nextView = 1;
-    tempData.prevView = 1;
-    tempData.user = NULL;
-    tempData.patient = NULL;
-    tempData.viewType = NULL;
-    tempData.prevViewType = NULL;
-    tempData.apptTime = NULL;
-}
