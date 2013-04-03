@@ -7,7 +7,7 @@ Controller::Controller() {
 Controller::~Controller() {
 }
 
-Controller::runProgram() {
+int Controller::runProgram() {
     while (current != NULL){
         tempData = current.view(tempData);
         user = tempData.user;

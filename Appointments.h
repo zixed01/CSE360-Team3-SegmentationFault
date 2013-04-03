@@ -38,7 +38,7 @@ public:
 
     //update private currentDate = newDate
     //call this->view
-    void changeDate(time_t newDate);
+    PassThrough changeDate(time_t newDate);
 
     //print ui elements and buttons
     //Search for Patient button = return 3, null, viewtype = "search", openTime
@@ -48,10 +48,11 @@ public:
 
     //add appointment with passthrough data
     //call this view
-    void addAppt(PassThrough tempData);
+    int addAppt(string paramList[]);
 
 private:
     time_t currentDate;
+    string message;
 };
 
 #endif	/* APPOINTMENTS_H */

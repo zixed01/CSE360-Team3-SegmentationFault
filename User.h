@@ -7,14 +7,24 @@ using namespace std;
 class User{
 public:
     //on instantiate, if userID != fill private fields
-    User(int userID);
+    User(int userID = 0);
     virtual ~User();
+    User getUser(int userID);
+    int getUserID();
+    string getType();
+    int getPatientID();
+    int getemployeeID();
+    int getdoctorID();
 
 protected:
-    string name;
+    int patientID;
+    int employeeID;
+    int doctorID;
     string type;
+    int userID;
 private:
-    //ALL OTHER USER FIELDS GO HERE
+    string username;
+    string password;
 };
 
 #endif	/* USER_H */

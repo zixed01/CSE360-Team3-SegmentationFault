@@ -1,22 +1,39 @@
-/* 
- * File:   User.cpp
- * Author: Steven Lowder
- * 
- * Created on March 30, 2013, 6:50 PM
- */
-
 #include "User.h"
 
-User::User() {
-	userID = 0;
-	name = "";
-	type = "";
-
+User::User(int userID = 0){
+    if(userID != 0){
+        this = getUser(userID);
+    }
 }
 
-User::User(const User& orig) {
+virtual User::~User(){
 }
 
-User::~User() {
+User User::getUser(int userID){
+    //select from User table where userID = userID
+    //create user object with data equal to pulled row
+    //return user object
+    User user = new User();
+    return user;
+}
+
+int User::getUserID(){
+    return userID;
+}
+
+string User::getType(){
+    return type;
+}
+
+int User::getPatientID(){
+    return patientID;
+}
+
+int User::getemployeeID(){
+    return employeeID;
+}
+
+int User::getdoctorID(){
+    return doctorID;
 }
 

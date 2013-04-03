@@ -24,6 +24,7 @@ public:
     /*Develop structure type*/
     PassThrough view(PassThrough tempdata);
     string getScreenName();
+    void logout(PassThrough tempData);
 
 private:
 protected:

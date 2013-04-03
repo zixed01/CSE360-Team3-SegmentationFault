@@ -30,7 +30,7 @@ public:
     forgotPass * forgotPassList();
 
     //remove user from forgotPassword list
-    void removeForgotPassword(User user);
+    PassThrough removeForgotPassword(User user);
 
     //print out all input fields for user
     //clicking save calls save user
@@ -47,7 +47,7 @@ public:
     //clicking on name calls editUser
     //cancel returns to admin main
     //searchagain call searchUsers
-    PassThrough searchResults(PassThrough tempData, string * paramList);
+    PassThrough searchResults(PassThrough tempData, string paramList[]);
 
     //prints out input fields
     //clicking save calls editUser
