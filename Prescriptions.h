@@ -2,10 +2,17 @@
 #define	PRESCRIPTIONS_H
 
 #include "Data.h"
+#include <iostream>
 
 using namespace std;
 struct presData{
-    //Prescription info goes here
+    string ra;
+	string name;
+	string dose;
+	string instructions;
+	string refills;
+	string Doctor;
+	string comments;
     presData * next;
 };
 class Prescriptions : public Data{
@@ -39,9 +46,9 @@ public:
     //if prescriptionID = 0 then add new prescription
     //else edit prescription
     //return false is any parameters are invalid
-    bool savePrescription(PassThrough tempdata, string * paramList, int prescriptionID = 0);
+    bool savePrescription(PassThrough tempdata, string paramList[], int prescriptionID = 0);
 private:
-
+	presData * root;
 };
 
 #endif	/* PRESCRIPTIONS_H */
