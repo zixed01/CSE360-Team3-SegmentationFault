@@ -16,7 +16,8 @@ public:
     Comments();
     virtual ~Comments();
 
-    //call getComments(tempData.Patient)
+    //call getComments(tempData.Patient, currentDate)
+	//print all UI and buttons
     PassThrough view(PassThrough tempData);
 
     //gets list of comments for patient
