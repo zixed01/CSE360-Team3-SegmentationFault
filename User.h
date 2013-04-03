@@ -7,7 +7,7 @@ using namespace std;
 class User{
 public:
     //on instantiate, if userID != fill private fields
-    User(int userID = 0);
+    User(int userID);
     virtual ~User();
 
 protected:

@@ -52,6 +52,8 @@ public:
 
     //save goal
     bool insertGoal(PassThrough tempData, string * paramList);
+    
+    string monthconverter(int mon);
 
 private:
     string statType;

@@ -8,6 +8,10 @@
 #include "User.h"
 
 User::User() {
+	userID = 0;
+	name = "";
+	type = "";
+
 }
 
 User::User(const User& orig) {
