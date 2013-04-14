@@ -1,7 +1,7 @@
 #ifndef STATS_H
 #define	STATS_H
 
-#include "Data.h"
+#include "Boundary.h"
 #include <ctime>
 
 using namespace std;
@@ -13,7 +13,7 @@ struct statData{
     statData * next;
 };
 
-class Stats : public Data{
+class Stats : public Boundary{
 public:
     //instantiate stats, set default statType, currentMonth = thisMonth
     Stats();
@@ -24,7 +24,7 @@ public:
     //PERMISSION CHECK on TABS
     ////if patient, don't show comments tab
     ////if employee show all tabs
-    PassThrough view(PassThrough tempData);
+    SessionData view(SessionData tempData);
 
     //reads file and gets stats for statType and patient, returns list
     statData * getStats(User patient);
@@ -40,18 +40,18 @@ public:
     //print out input elements
     //call insertData return
     //call this->view
-    PassThrough addData(PassThrough tempData);
+    SessionData addData(SessionData tempData);
 
     //print out input elements
     //call insertGoal return
     //call this->view
-    PassThrough addGoal(PassThrough tempData);
+    SessionData addGoal(SessionData tempData);
 
     //save data
-    bool insertData(PassThrough tempData, string * paramList);
+    bool insertData(SessionData tempData, string * paramList);
 
     //save goal
-    bool insertGoal(PassThrough tempData, string * paramList);
+    bool insertGoal(SessionData tempData, string * paramList);
     
     string monthconverter(int mon);
 

@@ -1,10 +1,3 @@
-/* 
- * File:   Patient.cpp
- * Author: Steven Lowder
- * 
- * Created on March 30, 2013, 6:51 PM
- */
-
 #include "Patient.h"
 #include <iostream>
 
@@ -35,7 +28,7 @@ Patient::~Patient()
 //if viewtype = null, then infoView
 //if viewtype = search, then searchView
 //if viewtype = add, then addView
-PassThrough Patient::view(PassThrough tempData)
+SessionData Patient::view(SessionData tempData)
 {
 	if((tempData.viewType).compare("add") == 0)
 	{
@@ -60,7 +53,7 @@ PassThrough Patient::view(PassThrough tempData)
 //PERMISSION CHECK on TABS
 ////if patient, don't show comments tab
 ////if employee show all tabs
-PassThrough Patient::infoView(PassThrough tempData)
+SessionData Patient::infoView(SessionData tempData)
 {
     //patient info screen pops up
 	//the tabs displayed depend upon the user viewing the info
@@ -84,7 +77,7 @@ PassThrough Patient::infoView(PassThrough tempData)
 //print out search info box and buttons
 //search calls searchResults(), don't update prevView / prevViewType
 //GoBack returns tempData with nextView = prevView / viewType = prevViewType;
-PassThrough Patient::searchView(PassThrough tempData)
+SessionData Patient::searchView(SessionData tempData)
 {
 	string newFirst;
 	string newLast;
@@ -111,7 +104,7 @@ PassThrough Patient::searchView(PassThrough tempData)
 //print out info boxes, prefilled if paramList != null and buttons
 //submit call addPatient
 //cancel will go to previous screen
-PassThrough Patient::addView(PassThrough tempData, string * newParamList = NULL)
+SessionData Patient::addView(SessionData tempData, string * newParamList = NULL)
 {
 	
 
@@ -148,7 +141,7 @@ PassThrough Patient::addView(PassThrough tempData, string * newParamList = NULL)
 }
 
 //search patients based on paramList and print out list
-PassThrough Patient::searchResults(PassThrough tempData, string first, string last, string phone, int ID)
+SessionData Patient::searchResults(SessionData tempData, string first, string last, string phone, int ID)
 {
 	//search through database, comparing each category that is not NULL
 	//if a match is found for non-null categories, add the patient to a new list
@@ -159,7 +152,7 @@ PassThrough Patient::searchResults(PassThrough tempData, string first, string la
 //addPatient will call savePatient
 //if bool = true, call view, viewtype = null, and tempData.patient = patient just added
 //if bool = false, show message for invalid fields.
-PassThrough Patient::addPatient(PassThrough tempData, string * paramList)
+SessionData Patient::addPatient(SessionData tempData, string * paramList)
 {
   bool valid;
   for(int i = 0; i++; i<9)
@@ -188,7 +181,7 @@ PassThrough Patient::addPatient(PassThrough tempData, string * paramList)
 //check if fields are valid
 //create new if patientID = 0
 //if valid, save and return true, else false
-bool Patient::savePatient(PassThrough tempData, string * paramList, int patientID = 0)
+bool Patient::savePatient(SessionData tempData, string * paramList, int patientID = 0)
 {
 	if(patientID == 0)
 	{

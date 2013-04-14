@@ -1,7 +1,7 @@
 #ifndef CONTROLLER_H
 #define	CONTROLLER_H
 
-#include "Data.h"
+#include "Boundary.h"
 #include "User.h"
 
 class Controller {
@@ -10,10 +10,10 @@ public:
     int runProgram();
     virtual ~Controller();
 private:
-    Data current;
+    Boundary current;
     User user;
     User patient;
-    PassThrough tempData;
+    SessionData tempData;
 };
 
 #endif	/* CONTROLLER_H */

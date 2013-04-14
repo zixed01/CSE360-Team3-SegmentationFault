@@ -12,7 +12,7 @@ virtual Admin::~Admin(){
 //get forgot password requests
 //print out list and ui and buttons
 //all buttons call user functions and will return a 2 in PassThrough
-PassThrough Admin::view(PassThrough tempData){
+SessionData Admin::view(SessionData tempData){
 
     if(tempData.viewType == "edit")
         return editUser(tempData, tempData.user);
@@ -35,7 +35,7 @@ forgotPass * Admin::forgotPassList(){
 }
 
 //remove user from forgotPassword list
-PassThrough Admin::removeForgotPassword(PassThrough tempData, User user){
+SessionData Admin::removeForgotPassword(SessionData tempData, User user){
     //remove row in database matching user.userID
     return tempData;
 }
@@ -43,7 +43,7 @@ PassThrough Admin::removeForgotPassword(PassThrough tempData, User user){
 //print out all input fields for user
 //clicking save calls save user
 //clicking cancel goes back to main admin screen
-PassThrough Admin::editUser(PassThrough tempData, User user){
+SessionData Admin::editUser(SessionData tempData, User user){
     //print out UI elements
     //attach functions to buttons
 }
@@ -51,7 +51,7 @@ PassThrough Admin::editUser(PassThrough tempData, User user){
 //print out input fields
 //search calls searchResults with paramList
 //cancel returns to Admin main screen
-PassThrough Admin::searchUsers(PassThrough tempData){
+SessionData Admin::searchUsers(SessionData tempData){
     //print out input fields
     //attach functions to buttons
 }
@@ -61,7 +61,7 @@ PassThrough Admin::searchUsers(PassThrough tempData){
 //clicking on name calls editUser
 //cancel returns to admin main
 //searchagain call searchUsers
-PassThrough Admin::searchResults(PassThrough tempData, string paramList[]){
+SessionData Admin::searchResults(SessionData tempData, string paramList[]){
     int i = 0;
     while (i < paramList.sizeof()){
         //check paramList to ensure data is correct
@@ -74,7 +74,7 @@ PassThrough Admin::searchResults(PassThrough tempData, string paramList[]){
 //prints out input fields
 //clicking save calls editUser
 //clicking cancel goes back to main admin screen
-PassThrough Admin::addUser(PassThrough tempData){
+SessionData Admin::addUser(SessionData tempData){
     //print out UI elements
     string * paramList;
     int newUserID = saveUser(paramList);

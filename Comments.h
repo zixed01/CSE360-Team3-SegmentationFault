@@ -1,7 +1,7 @@
 #ifndef COMMENTS_H
 #define	COMMENTS_H
 
-#include "Data.h"
+#include "Boundary.h"
 #include <string>
 #include <ctime>
 using namespace std;
@@ -18,7 +18,7 @@ public:
 
     //call getComments(tempData.Patient, currentDate)
 	//print all UI and buttons
-    PassThrough view(PassThrough tempData);
+    SessionData view(SessionData tempData);
 
     //gets list of comments for patient
     commentData * getComments(User patient);
@@ -26,13 +26,13 @@ public:
     //print out gui and input fields
     //save will call save comment and call this->view
     //cancel will go to previous screen
-    PassThrough addComment(PassThrough tempdata);
+    SessionData addComment(SessionData tempdata);
 
     //return false is any parameters are invalid
-    bool saveComment(PassThrough tempdata, string *param);
+    bool saveComment(SessionData tempdata, string *param);
 
     //currentDate = newDate
-    void changeDate(PassThrough tempData, time_t newDate);
+    void changeDate(SessionData tempData, time_t newDate);
 private:
     time_t currentDate;
 };

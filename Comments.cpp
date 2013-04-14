@@ -23,7 +23,7 @@ Comments::~Comments()
 }
 
 //call getComments(tempData.Patient)
-PassThrough Comments::view(PassThrough tempData)
+SessionData Comments::view(SessionData tempData)
 {
 	commentData*  commentList = getComments(tempData.patient);
 
@@ -47,9 +47,9 @@ commentData * Comments::getComments(User patient)
 //print out gui and input fields
 //save will call save comment and call this->view
 //cancel will go to previous screen
-PassThrough Comments::addComment(PassThrough tempdata)
+SessionData Comments::addComment(SessionData tempdata)
 {
-	PassThrough tempData;
+	SessionData tempData;
 	//print gui for add comment screen
 	string *comment;
 	//save inputted comment into "*comment"
@@ -66,7 +66,7 @@ PassThrough Comments::addComment(PassThrough tempdata)
 }
 
 //return false is any parameters are invalid
-bool Comments::saveComment(PassThrough tempdata, string *param)
+bool Comments::saveComment(SessionData tempdata, string *param)
 {
 	commentData*  commentList = getComments(tempData.patient);
 
@@ -76,7 +76,7 @@ bool Comments::saveComment(PassThrough tempdata, string *param)
 }
 
 //currentDate = newDate
-void Comments::changeDate(PassThrough tempData, time_t newDate)
+void Comments::changeDate(SessionData tempData, time_t newDate)
 {
 
 }

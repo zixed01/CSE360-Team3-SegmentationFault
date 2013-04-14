@@ -27,7 +27,7 @@
     //PERMISSION CHECK on editing
     ////if patient or user.type == nurse, don't allow to edit fields
     ////if user.type == doctor allow to edit fields
-    PassThrough Prescriptions::view(PassThrough tempData)
+    SessionData Prescriptions::view(SessionData tempData)
 	{
 		presData * temp = getPrescription(tempData.patient);
 
@@ -64,7 +64,7 @@
     //print out gui and input fields
     //save will call save prescription and call this->view
     //cancel will go to previous screen (not yet implemented)
-    PassThrough Prescriptions::addPrescription(PassThrough tempdata) //Method for when the add prescription button is pressed
+    SessionData Prescriptions::addPrescription(SessionData tempdata) //Method for when the add prescription button is pressed
 	{
 		
 
@@ -92,7 +92,7 @@
     //Print out fields prefilled with data fields
     //save will call save prescription and go previous screen
     //cancel will go to previous screen
-    PassThrough Prescriptions::editPrescription(PassThrough tempdata, presData data)
+    SessionData Prescriptions::editPrescription(SessionData tempdata, presData data)
 	{
 		
 
@@ -102,7 +102,7 @@
     //if prescriptionID = 0 then add new prescription
     //else edit prescription
     //return false is any parameters are invalid
-    bool Prescriptions::savePrescription(PassThrough tempdata, string paramList[], int prescriptionID)
+    bool Prescriptions::savePrescription(SessionData tempdata, string paramList[], int prescriptionID)
 	{
 		presData *add = new presData;
 		add->Doctor = tempdata.user.name;

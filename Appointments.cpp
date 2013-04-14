@@ -11,7 +11,7 @@ virtual Appointments::~Appointments(){
 //print out ui elements and data
 //if tempData.viewType = "add", call addApptView
 //Get list of appointments of currentDate
-PassThrough Appointments::view(PassThrough tempData){
+SessionData Appointments::view(SessionData tempData){
     if(tempData.viewType = "add")
         return addApptView(tempData);
     Appt apptList[];
@@ -30,14 +30,8 @@ Appt* Appointments::getAppointments(){
     return appList;
 }
 
-//return struct with 1 and Null
-PassThrough Appointments::logout(PassThrough tempData){
-    Data data = new Data();
-    return data.logout(tempData);
-}
-
 //return 3, null, viewType = "add"
-PassThrough Appointments::addNewPatient(PassThrough tempData){
+SessionData Appointments::addNewPatient(SessionData tempData){
     tempData.nextView = 3;
     tempData.viewType = "add";
     tempData.prevView = 4;
@@ -45,7 +39,7 @@ PassThrough Appointments::addNewPatient(PassThrough tempData){
 }
 
 //return 3 and Appt->patient
-PassThrough Appointments::viewPatient(PassThrough tempData){
+SessionData Appointments::viewPatient(SessionData tempData){
     tempData.nextView = 3;
     tempData.prevView = 4;
     tempData.patient = Appt.patient;
@@ -54,7 +48,7 @@ PassThrough Appointments::viewPatient(PassThrough tempData){
 
 //update private currentDate = newDate
 //call this->view
-PassThrough Appointments::changeDate(PassThrough tempData, time_t newDate){
+SessionData Appointments::changeDate(SessionData tempData, time_t newDate){
     currentDate = newDate;
     return this->view(tempData);
 }
@@ -63,13 +57,13 @@ PassThrough Appointments::changeDate(PassThrough tempData, time_t newDate){
 //Search for Patient button = return 3, null, viewtype = "search", openTime
 //submit will addAppt with data
 //GoBack will call this->view
-PassThrough Appointments::addApptView(PassThrough tempData, time_t openTime){
+SessionData Appointments::addApptView(SessionData tempData, time_t openTime){
     //print ui elements and attach functions
 }
 
 //add appointment with passthrough data
 //call this view
-PassThrough Appointments::addAppt(PassThrough tempData){
+SessionData Appointments::addAppt(SessionData tempData){
     //if unable to add to database
     //message = "unable to add appointment"
     //else

@@ -12,7 +12,7 @@ struct forgotPass{
     forgotPass * next;
 };
 
-class Admin : public Data{
+class Admin : public Boundary{
 public:
     Admin();
     virtual ~Admin();
@@ -24,35 +24,35 @@ public:
     //get forgot password requests
     //print out list and ui and buttons
     //all buttons call user functions and will return a 2 in PassThrough
-    PassThrough view(PassThrough tempData);
+    SessionData view(SessionData tempData);
 
     //get list of all people who have requested password reset
     forgotPass * forgotPassList();
 
     //remove user from forgotPassword list
-    PassThrough removeForgotPassword(User user);
+    SessionData removeForgotPassword(User user);
 
     //print out all input fields for user
     //clicking save calls save user
     //clicking cancel goes back to main admin screen
-    PassThrough editUser(PassThrough tempData, User user);
+    SessionData editUser(SessionData tempData, User user);
 
     //print out input fields
     //search calls searchResults with paramList
     //cancel returns to Admin main screen
-    PassThrough searchUsers(PassThrough tempData);
+    SessionData searchUsers(SessionData tempData);
 
     //checks if paramList is valid
     //pulls all users that match and prints results
     //clicking on name calls editUser
     //cancel returns to admin main
     //searchagain call searchUsers
-    PassThrough searchResults(PassThrough tempData, string paramList[]);
+    SessionData searchResults(SessionData tempData, string paramList[]);
 
     //prints out input fields
     //clicking save calls editUser
     //clicking cancel goes back to main admin screen
-    PassThrough addUser(PassThrough tempData);
+    SessionData addUser(SessionData tempData);
 
     //check if paramList is valid
     //edit user if userID !=0, else add new

@@ -26,7 +26,7 @@ Stats::~Stats() {
 }
 
 
-PassThrough Stats::view(PassThrough tempData){
+SessionData Stats::view(SessionData tempData){
     statData comp = getStats(tempData.patient);
     //GUI about the graph
     cout<<comp<<endl;
@@ -53,21 +53,21 @@ void Stats::changeStatType(string newStatType){
     //More GUI stuff to change stat type view
 }
 
-PassThrough Stats::addData(PassThrough tempData){
+SessionData Stats::addData(SessionData tempData){
     //Print out input GUI
     bool okay = insertData(tempData, paramList);
     //Change GUI view to something
     return tempData;
 }
 
-PassThrough Stats::addGoal(PassThrough tempData){
+SessionData Stats::addGoal(SessionData tempData){
     //Print out out GUI elements
     bool okay = insertGoal(tempData, paramList);
     //Change view
     return tempData;
 }
 
-bool Stats::insertData(PassThrough tempData, string * paramList){
+bool Stats::insertData(SessionData tempData, string * paramList){
     //add data into Database
     if(/*insert is successful*/){
         return true;
@@ -77,7 +77,7 @@ bool Stats::insertData(PassThrough tempData, string * paramList){
         }
 }
 
-bool Stats::insertGoal(PassThrough tempData, string * paramList){
+bool Stats::insertGoal(SessionData tempData, string * paramList){
     //add goalline into Database
     if(/*insert is successful*/){
         return true;

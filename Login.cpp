@@ -15,9 +15,9 @@ Login::~Login() {
 //checks username and password is valid
 //if valid determine home screen and return homescreen num and User object
 //if invalid, set message to reason for invalid, and call view again
-PassThrough Login::submit(string username, string password)
+SessionData Login::submit(string username, string password)
 {
-	PassThrough tempData;
+	SessionData tempData;
 	bool pass;			//boolean pass checks to see if login was successful
 	
 	do{										//performs do function until login is a success
@@ -33,9 +33,9 @@ PassThrough Login::submit(string username, string password)
 //create Admin class and calls admin forgotpassword
 //if successsful, change message to tell user it worked and call view
 //if no username when button pressed, change message accordingly
-PassThrough Login::forgotPassword(string username)
+SessionData Login::forgotPassword(string username)
 {
-	PassThrough tempData;
+	SessionData tempData;
 		
 	Admin *admin = new Admin();
 
@@ -52,7 +52,7 @@ PassThrough Login::forgotPassword(string username)
 }
 
 //Print out UI elements for login screen
-PassThrough Login::view(PassThrough tempData)
+SessionData Login::view(SessionData tempData)
 {
 	//prints GUI
 	//has two fields: username and password

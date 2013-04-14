@@ -1,7 +1,7 @@
 #ifndef PRESCRIPTIONS_H
 #define	PRESCRIPTIONS_H
 
-#include "Data.h"
+#include "Boundary.h"
 #include <iostream>
 
 using namespace std;
@@ -15,7 +15,7 @@ struct presData{
 	string comments;
     presData * next;
 };
-class Prescriptions : public Data{
+class Prescriptions : public Boundary{
 public:
     Prescriptions();
     virtual ~Prescriptions();
@@ -28,7 +28,7 @@ public:
     //PERMISSION CHECK on editing
     ////if patient or user.type == nurse, don't allow to edit fields
     ////if user.type == doctor allow to edit fields
-    PassThrough view(PassThrough tempData);
+    SessionData view(SessionData tempData);
 
     //gets list of prescriptions for patient
     presData * getPrescription(User patient);
@@ -36,17 +36,17 @@ public:
     //print out gui and input fields
     //save will call save prescription and call this->view
     //cancel will go to previous screen
-    PassThrough addPrescription(PassThrough tempdata);
+    SessionData addPrescription(SessionData tempdata);
 
     //Print out fields prefilled with data fields
     //save will call save prescription and go previous screen
     //cancel will go to previous screen
-    PassThrough editPrescription(PassThrough tempdata, presData data);
+    SessionData editPrescription(SessionData tempdata, presData data);
     
     //if prescriptionID = 0 then add new prescription
     //else edit prescription
     //return false is any parameters are invalid
-    bool savePrescription(PassThrough tempdata, string paramList[], int prescriptionID = 0);
+    bool savePrescription(SessionData tempdata, string paramList[], int prescriptionID = 0);
 private:
 	presData * root;
 };
