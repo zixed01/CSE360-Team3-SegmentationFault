@@ -1,12 +1,12 @@
 #ifndef LOGIN_H
 #define	LOGIN_H
 
-#include "Boundary.h"
+#include "Control.h"
 #include "User.h"
 #include <string>
 using namespace std;
 
-class Login : public Boundary{
+class Login : public Control{
 public:
     Login();
     virtual ~Login();

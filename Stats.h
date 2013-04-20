@@ -1,7 +1,7 @@
 #ifndef STATS_H
 #define	STATS_H
 
-#include "Boundary.h"
+#include "Control.h"
 #include <ctime>
 
 using namespace std;
@@ -13,7 +13,7 @@ struct statData{
     statData * next;
 };
 
-class Stats : public Boundary{
+class Stats : public Control{
 public:
     //instantiate stats, set default statType, currentMonth = thisMonth
     Stats();

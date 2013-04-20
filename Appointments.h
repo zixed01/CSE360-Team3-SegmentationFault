@@ -1,7 +1,7 @@
 #ifndef APPOINTMENTS_H
 #define	APPOINTMENTS_H
 
-#include "Boundary.h"
+#include "Control.h"
 #include "ApptData.h"
 #include "User.h"
 #include <string>
@@ -13,7 +13,7 @@ struct Appt{
     User patient;
     Appt * next;
 };
-class Appointments : public Boundary{
+class Appointments : public Control{
 public:
     //instantiate currentDate = today;
     Appointments();

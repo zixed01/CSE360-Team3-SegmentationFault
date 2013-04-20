@@ -2,9 +2,9 @@
 #define	PATIENT_H
 
 
-#include "Boundary.h"
+#include "Control.h"
 
-class Patient : public User, public Boundary {
+class Patient : public Control {
 public:
     //on instantiate if patientID != 0, then fill private fields
     Patient(int patientID = 0);

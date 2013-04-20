@@ -1,7 +1,7 @@
 #ifndef PRESCRIPTIONS_H
 #define	PRESCRIPTIONS_H
 
-#include "Boundary.h"
+#include "Control.h"
 #include <iostream>
 
 using namespace std;
@@ -15,7 +15,7 @@ struct presData{
 	string comments;
     presData * next;
 };
-class Prescriptions : public Boundary{
+class Prescriptions : public Control{
 public:
     Prescriptions();
     virtual ~Prescriptions();

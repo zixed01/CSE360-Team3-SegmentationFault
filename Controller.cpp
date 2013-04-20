@@ -2,6 +2,7 @@
 
 Controller::Controller() {
     current = new Login();
+    session = new SessionData();
 }
 
 Controller::~Controller() {
@@ -9,11 +10,9 @@ Controller::~Controller() {
 
 int Controller::runProgram() {
     while (current != NULL){
-        tempData = current.view(tempData);
-        user = tempData.user;
-        patient = tempData.patient;
+        session = current.view(session);
 
-        switch (tempData.nextView){
+        switch (session.getnextView()){
             case 0:
                 current == NULL;
                 break;

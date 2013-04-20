@@ -1,7 +1,7 @@
 #ifndef COMMENTS_H
 #define	COMMENTS_H
 
-#include "Boundary.h"
+#include "Control.h"
 #include <string>
 #include <ctime>
 using namespace std;
@@ -10,7 +10,7 @@ struct commentData{
     string message;
     commentData * next;
 };
-class Comments {
+class Comments : public Control{
 public:
     //instantiate currentDate = today
     Comments();
