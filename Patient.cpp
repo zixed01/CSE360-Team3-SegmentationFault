@@ -3,32 +3,21 @@
 
 Patient::Patient(int patientID = 0) 
 {
-	if(patientID != 0)
-	{
-		//pull information from database using
-		//the patientID and assign all
-		//private variables to the ones from the database
-		//ex: firstName = (name from database)
-	}
-	else
-	{
-		//do nothing. The save patient function will
-		//take care of filling out the data for a 
-		//new patient using the set methods
-	}
-
+	patientData = new PtntData(patientID);
+	//creates a new PtntData that either pulls from the 
+	//database if patietnID !=0 or creates a new blank patient
 }
 
 
 Patient::~Patient() 
 {
-
+	delete patientData;
 }
 
 //if viewtype = null, then infoView
 //if viewtype = search, then searchView
 //if viewtype = add, then addView
-SessionData Patient::view(SessionData tempData)
+void Patient::view(SessionData tempData)
 {
 	if((tempData.viewType).compare("add") == 0)
 	{
@@ -53,7 +42,7 @@ SessionData Patient::view(SessionData tempData)
 //PERMISSION CHECK on TABS
 ////if patient, don't show comments tab
 ////if employee show all tabs
-SessionData Patient::infoView(SessionData tempData)
+void Patient::infoView(SessionData tempData)
 {
     //patient info screen pops up
 	//the tabs displayed depend upon the user viewing the info
@@ -77,7 +66,7 @@ SessionData Patient::infoView(SessionData tempData)
 //print out search info box and buttons
 //search calls searchResults(), don't update prevView / prevViewType
 //GoBack returns tempData with nextView = prevView / viewType = prevViewType;
-SessionData Patient::searchView(SessionData tempData)
+void Patient::searchView(SessionData tempData)
 {
 	string newFirst;
 	string newLast;
@@ -104,7 +93,7 @@ SessionData Patient::searchView(SessionData tempData)
 //print out info boxes, prefilled if paramList != null and buttons
 //submit call addPatient
 //cancel will go to previous screen
-SessionData Patient::addView(SessionData tempData, string * newParamList = NULL)
+void Patient::addView(SessionData tempData, string * newParamList = NULL)
 {
 	
 
@@ -141,7 +130,7 @@ SessionData Patient::addView(SessionData tempData, string * newParamList = NULL)
 }
 
 //search patients based on paramList and print out list
-SessionData Patient::searchResults(SessionData tempData, string first, string last, string phone, int ID)
+void Patient::searchResults(SessionData tempData, string first, string last, string phone, int ID)
 {
 	//search through database, comparing each category that is not NULL
 	//if a match is found for non-null categories, add the patient to a new list
@@ -152,7 +141,7 @@ SessionData Patient::searchResults(SessionData tempData, string first, string la
 //addPatient will call savePatient
 //if bool = true, call view, viewtype = null, and tempData.patient = patient just added
 //if bool = false, show message for invalid fields.
-SessionData Patient::addPatient(SessionData tempData, string * paramList)
+void Patient::addPatient(SessionData tempData, string * paramList)
 {
   bool valid;
   for(int i = 0; i++; i<9)

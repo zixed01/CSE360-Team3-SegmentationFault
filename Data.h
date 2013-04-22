@@ -7,6 +7,7 @@ public:
     virtual ~Data();
 private:
 
+
 };
 
 #endif	/* DATA_H */
