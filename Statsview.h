@@ -1,7 +1,12 @@
 #pragma once
-#include "stdafx.h"
+#include <string>
+#include "Graph.h"
+using namespace std;
+using namespace System;
 
-namespace TemplateProject {
+void MarshalString ( String ^ s, string& os );
+
+namespace PulseVisualJ {
 
 	using namespace System;
 	using namespace System::ComponentModel;
@@ -13,10 +18,10 @@ namespace TemplateProject {
 	/// <summary>
 	/// Summary for Stats
 	/// </summary>
-	public ref class Stats : public System::Windows::Forms::Form
+	public ref class Statsview : public System::Windows::Forms::Form
 	{
 	public:
-		Stats(void)
+		Statsview(void)
 		{
 			InitializeComponent();
 			//
@@ -28,7 +33,7 @@ namespace TemplateProject {
 		/// <summary>
 		/// Clean up any resources being used.
 		/// </summary>
-		~Stats()
+		~Statsview()
 		{
 			if (components)
 			{
@@ -97,7 +102,7 @@ namespace TemplateProject {
 			this->label2->Size = System::Drawing::Size(81, 13);
 			this->label2->TabIndex = 2;
 			this->label2->Text = L"Blood Pressure:";
-			this->label2->Click += gcnew System::EventHandler(this, &Stats::label2_Click);
+			this->label2->Click += gcnew System::EventHandler(this, &Statsview::label2_Click);
 			// 
 			// label3
 			// 
@@ -107,7 +112,7 @@ namespace TemplateProject {
 			this->label3->Size = System::Drawing::Size(67, 13);
 			this->label3->TabIndex = 3;
 			this->label3->Text = L"Sugar Level:";
-			this->label3->Click += gcnew System::EventHandler(this, &Stats::label3_Click);
+			this->label3->Click += gcnew System::EventHandler(this, &Statsview::label3_Click);
 			// 
 			// textBox1
 			// 
@@ -115,7 +120,7 @@ namespace TemplateProject {
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(100, 20);
 			this->textBox1->TabIndex = 4;
-			this->textBox1->TextChanged += gcnew System::EventHandler(this, &Stats::textBox1_TextChanged);
+			this->textBox1->TextChanged += gcnew System::EventHandler(this, &Statsview::textBox1_TextChanged);
 			// 
 			// textBox2
 			// 
@@ -139,7 +144,7 @@ namespace TemplateProject {
 			this->button1->TabIndex = 7;
 			this->button1->Text = L"View Graph";
 			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &Stats::button1_Click);
+			this->button1->Click += gcnew System::EventHandler(this, &Statsview::button1_Click);
 			// 
 			// button2
 			// 
@@ -149,7 +154,7 @@ namespace TemplateProject {
 			this->button2->TabIndex = 8;
 			this->button2->Text = L"Add Data";
 			this->button2->UseVisualStyleBackColor = true;
-			this->button2->Click += gcnew System::EventHandler(this, &Stats::button2_Click);
+			this->button2->Click += gcnew System::EventHandler(this, &Statsview::button2_Click);
 			// 
 			// label4
 			// 
@@ -184,7 +189,7 @@ namespace TemplateProject {
 			this->dateTimePicker1->Name = L"dateTimePicker1";
 			this->dateTimePicker1->Size = System::Drawing::Size(200, 20);
 			this->dateTimePicker1->TabIndex = 12;
-			this->dateTimePicker1->ValueChanged += gcnew System::EventHandler(this, &Stats::dateTimePicker1_ValueChanged);
+			this->dateTimePicker1->ValueChanged += gcnew System::EventHandler(this, &Statsview::dateTimePicker1_ValueChanged);
 			// 
 			// label7
 			// 
@@ -196,7 +201,7 @@ namespace TemplateProject {
 			this->label7->Text = L"Date: ";
 
 			// 
-			// Stats
+			// Statsview
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
@@ -216,7 +221,7 @@ namespace TemplateProject {
 			this->Controls->Add(this->label1);
 			this->Name = L"Stats";
 			this->Text = L"Stats";
-			this->Load += gcnew System::EventHandler(this, &Stats::Stats_Load);
+			this->Load += gcnew System::EventHandler(this, &Statsview::Statsview_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -229,8 +234,8 @@ private: System::Void textBox1_TextChanged(System::Object^  sender, System::Even
 private: System::Void label3_Click(System::Object^  sender, System::EventArgs^  e) {
 		 }
 private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
-			  Graph ^ giraffe = gcnew Graph();
-			  giraffe->Show();
+			 // Graph ^ giraffe = gcnew Graph();
+			  //giraffe->Show();
 			  //this->Hide();
 		 }
 private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -250,7 +255,7 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 private: System::Void dateTimePicker1_ValueChanged(System::Object^  sender, System::EventArgs^  e) {
 			 //Pull the information from database for the selected date and put them in the text boxes
 		 }
-private: System::Void Stats_Load(System::Object^  sender, System::EventArgs^  e) {
+private: System::Void Statsview_Load(System::Object^  sender, System::EventArgs^  e) {
 		 }
 };
 }

@@ -1,10 +1,13 @@
-#include <string.h>
+#include <string>
 #include <iostream>
 #include "PresListView.h"
 
 #pragma once
 
-namespace funfungui {
+using namespace std;
+using namespace System;
+void MarshalString ( String ^ s, string& os );
+namespace PulseVisualJ {
 
 	using namespace System;
 	using namespace System::ComponentModel;
@@ -15,14 +18,7 @@ namespace funfungui {
 	using namespace std;
 
 
-	void MarshalString ( String ^ s, string& os ) 
-{
-   using namespace Runtime::InteropServices;
-   const char* chars = 
-      (const char*)(Marshal::StringToHGlobalAnsi(s)).ToPointer();
-   os = chars;
-   Marshal::FreeHGlobal(IntPtr((void*)chars));
-}
+
 	/// <summary>
 	/// Summary for Form1
 	/// </summary>
@@ -68,9 +64,6 @@ namespace funfungui {
 	private: System::Windows::Forms::TextBox^  doctor;
 	private: System::Windows::Forms::TextBox^  comments;
 	private: System::Windows::Forms::Button^  save;
-	private: System::Windows::Forms::Label^  errorDose;
-	private: System::Windows::Forms::Label^  label9;
-
 
 
 
@@ -114,8 +107,6 @@ namespace funfungui {
 			this->doctor = (gcnew System::Windows::Forms::TextBox());
 			this->comments = (gcnew System::Windows::Forms::TextBox());
 			this->save = (gcnew System::Windows::Forms::Button());
-			this->errorDose = (gcnew System::Windows::Forms::Label());
-			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// comboBox3
@@ -144,17 +135,17 @@ namespace funfungui {
 			this->label2->Size = System::Drawing::Size(35, 13);
 			this->label2->TabIndex = 4;
 			this->label2->Text = L"Name";
-			this->label2->Click += gcnew System::EventHandler(this, &PresEditAddView::label2_Click);
+			
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
 			this->label3->Location = System::Drawing::Point(12, 89);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(55, 13);
+			this->label3->Size = System::Drawing::Size(32, 13);
 			this->label3->TabIndex = 5;
-			this->label3->Text = L"Dose (mg)";
-			this->label3->Click += gcnew System::EventHandler(this, &PresEditAddView::label3_Click);
+			this->label3->Text = L"Dose";
+			
 			// 
 			// label4
 			// 
@@ -173,7 +164,7 @@ namespace funfungui {
 			this->label5->Size = System::Drawing::Size(35, 13);
 			this->label5->TabIndex = 7;
 			this->label5->Text = L"Refills";
-			this->label5->Click += gcnew System::EventHandler(this, &PresEditAddView::label5_Click);
+			
 			// 
 			// label6
 			// 
@@ -267,31 +258,11 @@ namespace funfungui {
 			this->save->UseVisualStyleBackColor = true;
 			this->save->Click += gcnew System::EventHandler(this, &PresEditAddView::save_Click);
 			// 
-			// errorDose
-			// 
-			this->errorDose->AutoSize = true;
-			this->errorDose->ForeColor = System::Drawing::Color::Red;
-			this->errorDose->Location = System::Drawing::Point(194, 96);
-			this->errorDose->Name = L"errorDose";
-			this->errorDose->Size = System::Drawing::Size(0, 13);
-			this->errorDose->TabIndex = 19;
-			// 
-			// label9
-			// 
-			this->label9->AutoSize = true;
-			this->label9->ForeColor = System::Drawing::Color::Red;
-			this->label9->Location = System::Drawing::Point(194, 159);
-			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(0, 13);
-			this->label9->TabIndex = 20;
-			// 
-			// PresEditAddView
+			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(284, 262);
-			this->Controls->Add(this->label9);
-			this->Controls->Add(this->errorDose);
 			this->Controls->Add(this->save);
 			this->Controls->Add(this->comments);
 			this->Controls->Add(this->doctor);
@@ -309,26 +280,17 @@ namespace funfungui {
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->comboBox3);
-			this->Name = L"PresEditAddView";
+			this->Name = L"Form1";
 			this->Text = L"Pulse";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-	private: System::Void comboBox1_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
-			 }
-	private: System::Void label2_Click(System::Object^  sender, System::EventArgs^  e) {
-			 }
-	private: System::Void label3_Click(System::Object^  sender, System::EventArgs^  e) {
-			 }
-private: System::Void label5_Click(System::Object^  sender, System::EventArgs^  e) {
-		 }
+	
 private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
-			 PresListView ^ presListView = gcnew PresListView();
-			 presListView->Show();
-			 //form2->label1->Text = sarray[0];
-			 this->Hide();
+			
+			 this->Close();
 		 }
 private: System::Void textBox4_TextChanged(System::Object^  sender, System::EventArgs^  e) {
 		 }
@@ -367,34 +329,16 @@ private: System::Void save_Click(System::Object^  sender, System::EventArgs^  e)
 			string pres52 = ""; 
 			string pres62 = ""; 
 			string pres72 = ""; 
-			const char *refills;
-			const char *dose;
-			MarshalString(pres1, pres12);
-			MarshalString(pres2, pres22);
+			//string[14] sarray;
+			//sarry[0] = MarshalString(pres1, pres12);
+			//sarry[0] = MarshalString(pres2, pres22);
 			MarshalString(pres3, pres32);
 			MarshalString(pres4, pres42);
 			MarshalString(pres5, pres52);
-			refills = pres52.c_str();
-			dose = pres32.c_str();
-			if(atoi(dose) <= 0)
-			{
-				this->errorDose->Text = "improper number";
-			}
-
-			if(atoi(refills) <= 0)
-			{
-				this->label9->Text = "improper number";
-			}
-
-			//cout << refills << endl;
-			//cout<< atoi(refills) << endl;
 			MarshalString(pres6, pres62);
 			MarshalString(pres7, pres72);
-
 		 }
-
-		 //private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
-		 //}
 };
 }
+
 

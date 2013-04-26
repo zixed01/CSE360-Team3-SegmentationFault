@@ -1,10 +1,12 @@
 #pragma once
 #include "stdafx.h"
 #include <string>
+
 using namespace std;
+using namespace System;
 
-
-namespace TemplateProject {
+void MarshalString ( String ^ s, string& os );
+namespace PulseVisualJ {
 
 	using namespace System;
 	using namespace System::ComponentModel;
@@ -72,13 +74,10 @@ namespace TemplateProject {
 
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^  chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^  legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^  series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::Title^  title1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Title());
-			System::Windows::Forms::DataVisualization::Charting::Title^  title2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Title());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^  chartArea3 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^  legend3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^  series3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			System::Windows::Forms::DataVisualization::Charting::Title^  title3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Title());
-			System::Windows::Forms::DataVisualization::Charting::Title^  title4 = (gcnew System::Windows::Forms::DataVisualization::Charting::Title());
 			this->dateTimePicker1 = (gcnew System::Windows::Forms::DateTimePicker());
 			this->dateTimePicker2 = (gcnew System::Windows::Forms::DateTimePicker());
 			this->label1 = (gcnew System::Windows::Forms::Label());
@@ -129,40 +128,30 @@ namespace TemplateProject {
 			// 
 			// chart1
 			// 
-			chartArea1->Name = L"ChartArea1";
-			this->chart1->ChartAreas->Add(chartArea1);
-			legend1->Name = L"Legend1";
-			this->chart1->Legends->Add(legend1);
+			chartArea3->Name = L"ChartArea1";
+			this->chart1->ChartAreas->Add(chartArea3);
+			legend3->Name = L"Legend1";
+			this->chart1->Legends->Add(legend3);
 			this->chart1->Location = System::Drawing::Point(268, 12);
 			this->chart1->Name = L"chart1";
-			series1->ChartArea = L"ChartArea1";
-			series1->Legend = L"Legend1";
-			series1->Name = L"Series1";
-			this->chart1->Series->Add(series1);
+			series3->ChartArea = L"ChartArea1";
+			series3->Legend = L"Legend1";
+			series3->Name = L"Series1";
+			this->chart1->Series->Add(series3);
 			this->chart1->Size = System::Drawing::Size(355, 230);
 			this->chart1->TabIndex = 4;
 			this->chart1->Text = L"Graph";
-			title1->Name = L"Graph";
-			title1->Text = L"Graph";
-			title2->Name = L"Weight";
-			title2->Text = L"Weight";
-			title2->Visible = false;
-			title3->Name = L"BP";
-			title3->Text = L"Blood Pressure";
-			title3->Visible = false;
-			title4->Name = L"SL";
-			title4->Text = L"Sugar Level";
-			title4->Visible = false;
-			this->chart1->Titles->Add(title1);
-	
+			title3->Name = L"Graph";
+			title3->Text = L"Graph";
+			this->chart1->Titles->Add(title3);
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(31, 219);
+			this->button1->Location = System::Drawing::Point(31, 222);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(75, 23);
+			this->button1->Size = System::Drawing::Size(81, 24);
 			this->button1->TabIndex = 5;
-			this->button1->Text = L"Add Data";
+			this->button1->Text = L"Go Back";
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &Graph::button1_Click);
 			// 
@@ -194,7 +183,7 @@ namespace TemplateProject {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(141, 218);
+			this->button2->Location = System::Drawing::Point(156, 223);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(75, 23);
 			this->button2->TabIndex = 9;
@@ -229,7 +218,6 @@ namespace TemplateProject {
 			this->Controls->Add(this->dateTimePicker1);
 			this->Name = L"Graph";
 			this->Text = L"Graph";
-			this->Load += gcnew System::EventHandler(this, &Graph::Graph_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->chart1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -237,14 +225,13 @@ namespace TemplateProject {
 		}
 #pragma endregion
 
-	private: System::Void Graph_Load(System::Object^  sender, System::EventArgs^  e) {
-			 }
 
-private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) 
+		 {
 
 			  //Stats ^ stats = gcnew Stats();
 			  //stats->Show();
-              Graph::Hide();
+              Graph::Close();
 		 }
 private: System::Void dateTimePicker1_ValueChanged(System::Object^  sender, System::EventArgs^  e) {
 			 String ^ tempstartdate =  dateTimePicker1->Value.ToString("MM/dd/yyyy");
@@ -260,9 +247,11 @@ private: System::Void dateTimePicker2_ValueChanged(System::Object^  sender, Syst
 			 //Change end date of graph
 		 }
 
-private: System::Void comboBox1_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
+private: System::Void comboBox1_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) 
+		 {
 		 }
-private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
+private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) 
+		 {
 			 String ^ temp = textBox1->Text; 
 			 string goal;
 			 MarshalString(temp, goal);
