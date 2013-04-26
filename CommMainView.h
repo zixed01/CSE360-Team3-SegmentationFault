@@ -1,5 +1,8 @@
 #pragma once
-#include "stdafx.h"
+//#include "stdafx.h"
+
+#include <string>
+#include <iostream>
 #include "CommAddView.h"
 
 namespace PulseTesting {
@@ -66,17 +69,15 @@ namespace PulseTesting {
 			// textbox
 			// 
 			this->textbox->Location = System::Drawing::Point(36, 57);
+			this->textbox->Name =BackColor = System::Drawing::Color::White;
+			this->textbox->Location = System::Drawing::Point(36, 57);
 			this->textbox->Name = L"textbox";
-			this->textbox->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::ForcedVertical;
+			this->textbox->ReadOnly = trueScrollBars::ForcedVertical;
 			this->textbox->Size = System::Drawing::Size(200, 156);
 			this->textbox->TabIndex = 0;
 			this->textbox->Text = L"Comments:";
 			this->textbox->ReadOnly = true;
-			this->textbox->BackColor = System::Drawing::Color::White;
-			// 
-			// add_btn
-			// 
-			this->add_btn->Location = System::Drawing::Point(97, 219);
+			this->textbox->BackColor = System::Drat(97, 219);
 			this->add_btn->Name = L"add_btn";
 			this->add_btn->Size = System::Drawing::Size(81, 23);
 			this->add_btn->TabIndex = 1;
@@ -94,7 +95,7 @@ namespace PulseTesting {
 			// CommentMainView
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
-			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->AutaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(284, 262);
 			this->Controls->Add(this->dateTimePicker);
 			this->Controls->Add(this->add_btn);
@@ -105,7 +106,8 @@ namespace PulseTesting {
 
 		}
 #pragma endregion
-	private: System::Void add_btn_Click(System::Object^  sender, System::EventArgs^  e) {
+	privateMainView";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreenid add_btn_Click(System::Object^  sender, System::EventArgs^  e) {
 
 			 	//Pops up a new window to add screen 
 				CommAddView ^ addScreen = gcnew CommAddView;

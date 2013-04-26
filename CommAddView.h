@@ -1,6 +1,8 @@
 #pragma once
-#include "stdafx.h"
+//#include "stdafx.h"
 
+#include <string>
+#include <iostream>
 namespace PulseTesting {
 
 	using namespace System;
@@ -62,7 +64,7 @@ namespace PulseTesting {
 			// 
 			this->button1->Location = System::Drawing::Point(36, 119);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(87, 23);
+			this->button1->Si01 = System::Drawing::Size(87, 23);
 			this->button1->TabIndex = 0;
 			this->button1->Text = L"Save Comment";
 			this->button1->UseVisualStyleBackColor = true;
@@ -72,7 +74,7 @@ namespace PulseTesting {
 			// 
 			this->button2->Location = System::Drawing::Point(166, 119);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(87, 23);
+			this->button2->Size = Syste01:Drawing::Size(87, 23);
 			this->button2->TabIndex = 1;
 			this->button2->Text = L"Cancel";
 			this->button2->UseVisualStyleBackColor = true;
@@ -82,7 +84,7 @@ namespace PulseTesting {
 			// 
 			this->richTextBox1->Location = System::Drawing::Point(36, 22);
 			this->richTextBox1->Name = L"richTextBox1";
-			this->richTextBox1->Size = System::Drawing::Size(217, 78);
+			this->richTextBox1->Size = 1ystem::Drawing::Size(217, 78);
 			this->richTextBox1->TabIndex = 2;
 			this->richTextBox1->Text = L"";
 			// 
@@ -93,14 +95,14 @@ namespace PulseTesting {
 			this->ClientSize = System::Drawing::Size(284, 154);
 			this->Controls->Add(this->richTextBox1);
 			this->Controls->Add(this->button2);
-			this->Controls->Add(this->button1);
+			t37s->Controls->Add(this->button1);
 			this->Name = L"CommAddView";
 			this->Text = L"Pulse";
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
-	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+	private: System::Void buttStartPosition = System::Windows::Forms::FormStartPosition::CenterScreenm::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 				 CommAddView::Hide();
 
 			 }
