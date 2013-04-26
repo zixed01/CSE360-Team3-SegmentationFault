@@ -1,5 +1,8 @@
 #pragma once
 #include "stdafx.h"
+#include <string>
+using namespace std;
+
 
 namespace TemplateProject {
 
@@ -12,13 +15,13 @@ namespace TemplateProject {
 
 
 
-
 	/// <summary>
 	/// Summary for Graph
 	/// </summary>
 	public ref class Graph : public System::Windows::Forms::Form
 	{
 	public:
+		
 		Graph(void)
 		{
 			InitializeComponent();
@@ -26,6 +29,8 @@ namespace TemplateProject {
 			//TODO: Add the constructor code here
 			//
 		}
+
+
 
 	protected:
 		/// <summary>
@@ -38,6 +43,7 @@ namespace TemplateProject {
 				delete components;
 			}
 		}
+
 	private: System::Windows::Forms::DateTimePicker^  dateTimePicker1;
 	protected: 
 	private: System::Windows::Forms::DateTimePicker^  dateTimePicker2;
@@ -63,11 +69,16 @@ namespace TemplateProject {
 		/// Required method for Designer support - do not modify
 		/// the contents of this method with the code editor.
 		/// </summary>
+
 		void InitializeComponent(void)
 		{
 			System::Windows::Forms::DataVisualization::Charting::ChartArea^  chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
 			System::Windows::Forms::DataVisualization::Charting::Legend^  legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
 			System::Windows::Forms::DataVisualization::Charting::Series^  series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Title^  title1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Title());
+			System::Windows::Forms::DataVisualization::Charting::Title^  title2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Title());
+			System::Windows::Forms::DataVisualization::Charting::Title^  title3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Title());
+			System::Windows::Forms::DataVisualization::Charting::Title^  title4 = (gcnew System::Windows::Forms::DataVisualization::Charting::Title());
 			this->dateTimePicker1 = (gcnew System::Windows::Forms::DateTimePicker());
 			this->dateTimePicker2 = (gcnew System::Windows::Forms::DateTimePicker());
 			this->label1 = (gcnew System::Windows::Forms::Label());
@@ -131,7 +142,19 @@ namespace TemplateProject {
 			this->chart1->Size = System::Drawing::Size(355, 230);
 			this->chart1->TabIndex = 4;
 			this->chart1->Text = L"Graph";
-			this->chart1->Click += gcnew System::EventHandler(this, &Graph::chart1_Click);
+			title1->Name = L"Graph";
+			title1->Text = L"Graph";
+			title2->Name = L"Weight";
+			title2->Text = L"Weight";
+			title2->Visible = false;
+			title3->Name = L"BP";
+			title3->Text = L"Blood Pressure";
+			title3->Visible = false;
+			title4->Name = L"SL";
+			title4->Text = L"Sugar Level";
+			title4->Visible = false;
+			this->chart1->Titles->Add(title1);
+	
 			// 
 			// button1
 			// 
@@ -163,7 +186,7 @@ namespace TemplateProject {
 			// 
 			this->comboBox1->FormattingEnabled = true;
 			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(3) {L"Weight", L"Blood Pressure", L"Sugar Level"});
-			this->comboBox1->Location = System::Drawing::Point(110, 137);
+			this->comboBox1->Location = System::Drawing::Point(110, 134);
 			this->comboBox1->Name = L"comboBox1";
 			this->comboBox1->Size = System::Drawing::Size(121, 21);
 			this->comboBox1->TabIndex = 8;
@@ -216,8 +239,7 @@ namespace TemplateProject {
 
 	private: System::Void Graph_Load(System::Object^  sender, System::EventArgs^  e) {
 			 }
-	private: System::Void chart1_Click(System::Object^  sender, System::EventArgs^  e) {
-			 }
+
 private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 
 			  //Stats ^ stats = gcnew Stats();
@@ -239,11 +261,10 @@ private: System::Void dateTimePicker2_ValueChanged(System::Object^  sender, Syst
 		 }
 
 private: System::Void comboBox1_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
-
 		 }
 private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
-			 string goal;
 			 String ^ temp = textBox1->Text; 
+			 string goal;
 			 MarshalString(temp, goal);
 
 			 //Save Goal in database along with goaltype

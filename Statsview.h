@@ -180,7 +180,7 @@ namespace TemplateProject {
 			// 
 			// dateTimePicker1
 			// 
-			this->dateTimePicker1->Location = System::Drawing::Point(35, 58);
+			this->dateTimePicker1->Location = System::Drawing::Point(38, 55);
 			this->dateTimePicker1->Name = L"dateTimePicker1";
 			this->dateTimePicker1->Size = System::Drawing::Size(200, 20);
 			this->dateTimePicker1->TabIndex = 12;
@@ -194,7 +194,7 @@ namespace TemplateProject {
 			this->label7->Size = System::Drawing::Size(36, 13);
 			this->label7->TabIndex = 13;
 			this->label7->Text = L"Date: ";
-			this->label7->Click += gcnew System::EventHandler(this, &Stats::label7_Click);
+
 			// 
 			// Stats
 			// 
@@ -246,8 +246,6 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 			 MarshalString(tempdate, date);
 			 //Save everything from the entered fields, into the database for the date specified
 
-		 }
-private: System::Void label7_Click(System::Object^  sender, System::EventArgs^  e) {
 		 }
 private: System::Void dateTimePicker1_ValueChanged(System::Object^  sender, System::EventArgs^  e) {
 			 //Pull the information from database for the selected date and put them in the text boxes
