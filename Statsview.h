@@ -216,6 +216,7 @@ namespace TemplateProject {
 			this->Controls->Add(this->label1);
 			this->Name = L"Stats";
 			this->Text = L"Stats";
+			this->Load += gcnew System::EventHandler(this, &Stats::Stats_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -228,8 +229,8 @@ private: System::Void textBox1_TextChanged(System::Object^  sender, System::Even
 private: System::Void label3_Click(System::Object^  sender, System::EventArgs^  e) {
 		 }
 private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
-			  //Graph ^ giraffe = gcnew Graph();
-			  //giraffe->Show();
+			  Graph ^ giraffe = gcnew Graph();
+			  giraffe->Show();
 			  //this->Hide();
 		 }
 private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -240,7 +241,7 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 			 MarshalString(temp, bp);
 			 temp = textBox3->Text; 
 			 MarshalString(temp, sl); 
-			 String ^ tempdate =  dateTimePicker1->Value.ToString();
+			 String ^ tempdate =  dateTimePicker1->Value.ToString("MM/dd/yyyy");
 			 string date;
 			 MarshalString(tempdate, date);
 			 //Save everything from the entered fields, into the database for the date specified
@@ -250,6 +251,8 @@ private: System::Void label7_Click(System::Object^  sender, System::EventArgs^  
 		 }
 private: System::Void dateTimePicker1_ValueChanged(System::Object^  sender, System::EventArgs^  e) {
 			 //Pull the information from database for the selected date and put them in the text boxes
+		 }
+private: System::Void Stats_Load(System::Object^  sender, System::EventArgs^  e) {
 		 }
 };
 }

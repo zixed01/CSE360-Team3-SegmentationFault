@@ -12,6 +12,7 @@ namespace TemplateProject {
 
 
 
+
 	/// <summary>
 	/// Summary for Graph
 	/// </summary>
@@ -49,6 +50,8 @@ namespace TemplateProject {
 	private: System::Windows::Forms::ComboBox^  comboBox1;
 	private: System::Windows::Forms::Button^  button2;
 
+	private: System::Windows::Forms::Label^  label4;
+
 	private:
 		/// <summary>
 		/// Required designer variable.
@@ -75,6 +78,7 @@ namespace TemplateProject {
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->label4 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->chart1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -102,7 +106,6 @@ namespace TemplateProject {
 			this->label1->Size = System::Drawing::Size(59, 13);
 			this->label1->TabIndex = 2;
 			this->label1->Text = L"From Date:";
-			this->label1->Click += gcnew System::EventHandler(this, &Graph::label1_Click);
 			// 
 			// label2
 			// 
@@ -112,7 +115,6 @@ namespace TemplateProject {
 			this->label2->Size = System::Drawing::Size(49, 13);
 			this->label2->TabIndex = 3;
 			this->label2->Text = L"To Date:";
-			this->label2->Click += gcnew System::EventHandler(this, &Graph::label2_Click);
 			// 
 			// chart1
 			// 
@@ -144,16 +146,15 @@ namespace TemplateProject {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(34, 133);
+			this->label3->Location = System::Drawing::Point(33, 179);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(57, 13);
 			this->label3->TabIndex = 6;
 			this->label3->Text = L"Add Goal: ";
-			this->label3->Click += gcnew System::EventHandler(this, &Graph::label3_Click);
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(37, 150);
+			this->textBox1->Location = System::Drawing::Point(131, 176);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(100, 20);
 			this->textBox1->TabIndex = 7;
@@ -162,7 +163,7 @@ namespace TemplateProject {
 			// 
 			this->comboBox1->FormattingEnabled = true;
 			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(3) {L"Weight", L"Blood Pressure", L"Sugar Level"});
-			this->comboBox1->Location = System::Drawing::Point(141, 149);
+			this->comboBox1->Location = System::Drawing::Point(110, 137);
 			this->comboBox1->Name = L"comboBox1";
 			this->comboBox1->Size = System::Drawing::Size(121, 21);
 			this->comboBox1->TabIndex = 8;
@@ -174,15 +175,25 @@ namespace TemplateProject {
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(75, 23);
 			this->button2->TabIndex = 9;
-			this->button2->Text = L"button2";
+			this->button2->Text = L"Add Goal";
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &Graph::button2_Click);
+			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->Location = System::Drawing::Point(31, 137);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(62, 13);
+			this->label4->TabIndex = 11;
+			this->label4->Text = L"Graph Data";
 			// 
 			// Graph
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(635, 264);
+			this->Controls->Add(this->label4);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->comboBox1);
 			this->Controls->Add(this->textBox1);
@@ -202,8 +213,7 @@ namespace TemplateProject {
 
 		}
 #pragma endregion
-	private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
-			 }
+
 	private: System::Void Graph_Load(System::Object^  sender, System::EventArgs^  e) {
 			 }
 	private: System::Void chart1_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -215,23 +225,21 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
               Graph::Hide();
 		 }
 private: System::Void dateTimePicker1_ValueChanged(System::Object^  sender, System::EventArgs^  e) {
-			 String ^ tempstartdate =  dateTimePicker1->Value.ToString();
+			 String ^ tempstartdate =  dateTimePicker1->Value.ToString("MM/dd/yyyy");
 			 string startdate;
 			 MarshalString(tempstartdate, startdate);
 			 //Pull all stats from this date to end date and display them on the graph and goal line if applicable
 
 		 }
 private: System::Void dateTimePicker2_ValueChanged(System::Object^  sender, System::EventArgs^  e) {
-			 String^ tempenddate =  dateTimePicker2->Value.ToString();
+			 String^ tempenddate =  dateTimePicker2->Value.ToString("MM/dd/yyyy");
 			 string enddate;
 			 MarshalString(tempenddate, enddate);
 			 //Change end date of graph
 		 }
-private: System::Void label2_Click(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void label3_Click(System::Object^  sender, System::EventArgs^  e) {
-		 }
+
 private: System::Void comboBox1_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
+
 		 }
 private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
 			 string goal;
@@ -239,6 +247,8 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 			 MarshalString(temp, goal);
 
 			 //Save Goal in database along with goaltype
+			 //Refresh graph
 		 }
+
 };
 }
