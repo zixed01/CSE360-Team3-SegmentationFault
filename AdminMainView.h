@@ -1,6 +1,6 @@
 #pragma once
 #include "AdminEditUserView.h"
-#include "AdminViewUsersiew.h"
+#include "AdminViewUsersView.h"
 #include "SessionData.h"
 
 namespace PulseTesting {
@@ -45,13 +45,15 @@ namespace PulseTesting {
 	private: System::Windows::Forms::Button^  removeButton;
 
 
-	private: System::Windows::Forms::TextBox^  te
 
 
 
 
-Label1;
-	private: System::Windows::Forms::Label^  message;
+
+
+	private: System::Windows::Forms::LinkLabel^  linkLabel1;
+	private: System::Windows::Forms::Button^  button1;
+
 
 
 
@@ -60,8 +62,8 @@ Label1;
 	protected: 
 
 	private:
-		/// <Button^  button1;
-equired designer variable.
+		/// <summary>
+		/// Required designer variable.
 		/// </summary>
 		System::ComponentModel::Container ^components;
 
@@ -77,67 +79,70 @@ equired designer variable.
 			this->listBox1 = (gcnew System::Windows::Forms::ListBox());
 			this->addButton = (gcnew System::Windows::Forms::Button());
 			this->removeButton = (gcnew System::Windows::Forms::Button());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox1 = (gcnelinkLabel1 = (gcnew System::Windows::Forms::LinkLabel());
-			this->button1 = (gcnew System::Windows::Forms::Buttontrue;
+			this->linkLabel1 = (gcnew System::Windows::Forms::LinkLabel());
+			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->SuspendLayout();
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline)), 
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(125, 23);
+			this->label1->Location = System::Drawing::Point(17, 16);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(85, 7, 16		this->label1->TabIndex = 0;
+			this->label1->Size = System::Drawing::Size(85, 13);
+			this->label1->TabIndex = 0;
 			this->label1->Text = L"Admin Screen";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(200, 45);
+			this->label2->Location = System::Drawing::Point(121, 31);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(108, 13);
-		121, 31label2->TabIndex = 2;
+			this->label2->TabIndex = 2;
 			this->label2->Text = L"Forgot Password List:";
 			// 
 			// listBox1
 			// 
 			this->listBox1->FormattingEnabled = true;
-			this->listBox1->Location = System::Drawing::Point(185, 60);
+			this->listBox1->Location = System::Drawing::Point(121, 46);
 			this->listBox1->Name = L"listBox1";
-			this->listBox1->Size = System::Drawing::Size(149, 108);
-			th21, 46stBox1->TabIndex = 3;
+			this->listBox1->Size = System::Drawing::Size(109, 108);
+			this->listBox1->TabIndex = 3;
 			// 
 			// addButton
 			// 
-			this->addButton->Location = System::Dr0wing::Point(60, 173);
+			this->addButton->Location = System::Drawing::Point(20, 109);
 			this->addButton->Name = L"addButton";
 			this->addButton->Size = System::Drawing::Size(75, 23);
-			this->a20, 109n->TabIndex = 4;
+			this->addButton->TabIndex = 4;
 			this->addButton->Text = L"Add User";
 			this->addButton->UseVisualStyleBackColor = true;
 			this->addButton->Click += gcnew System::EventHandler(this, &AdminMainView::addButton_Click);
 			// 
 			// removeButton
 			// 
-			this->removeButton->Location = System::Drawing::Point(200, 173);
+			this->removeButton->Location = System::Drawing::Point(121, 159);
 			this->removeButton->Name = L"removeButton";
 			this->removeButton->Size = System::Drawing::Size(109, 23);
-			this->121, 159tton->TabIndex = 5;
+			this->removeButton->TabIndex = 5;
 			this->removeButton->Text = L"Remove Username";
 			this->removeButton->UseVisualStyleBackColor = true;
 			this->removeButton->Click += gcnew System::EventHandler(this, &AdminMainView::removeButton_Click);
 			// 
-			// textBox2
-			// 
-			this->textBox2->Location = System::Drawing::Point(73, 94);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->SlinkLabel1
+			// linkLabel1
 			// 
 			this->linkLabel1->AutoSize = true;
-			this->linkLabel1->Location = System::Drawing::Point(212, 3linkLabel1->Text = L"logout";
+			this->linkLabel1->Location = System::Drawing::Point(212, 3);
+			this->linkLabel1->Name = L"linkLabel1";
+			this->linkLabel1->Size = System::Drawing::Size(36, 13);
+			this->linkLabel1->TabIndex = 18;
+			this->linkLabel1->TabStop = true;
+			this->linkLabel1->Text = L"logout";
 			this->linkLabel1->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &AdminMainView::linkLabel1_LinkClicked);
 			// 
-			// message
-			// 
-			this->message->AutoSize = true;
-			this->message->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::Graphicsbutton1
+			// button1
 			// 
 			this->button1->Location = System::Drawing::Point(20, 64);
 			this->button1->Name = L"button1";
@@ -145,15 +150,21 @@ equired designer variable.
 			this->button1->TabIndex = 19;
 			this->button1->Text = L"View Users";
 			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &AdminMainView::button1_Click):Size(344, 220);
-			this->Controls->Add(this->message);
-			this->Controls->Add(this->linkLabel1);
-			this->Controls->Add(this->textBox3);
-			this->Controls->Add(this->label5);
-			this->Controls->Add(this->textBox2);
-		250, 194);
+			this->button1->Click += gcnew System::EventHandler(this, &AdminMainView::button1_Click);
+			// 
+			// AdminMainView
+			// 
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->ClientSize = System::Drawing::Size(250, 194);
 			this->Controls->Add(this->button1);
-			this->Controls->Add(this->linkLabel1L"AdminMainView";
+			this->Controls->Add(this->linkLabel1);
+			this->Controls->Add(this->removeButton);
+			this->Controls->Add(this->addButton);
+			this->Controls->Add(this->listBox1);
+			this->Controls->Add(this->label2);
+			this->Controls->Add(this->label1);
+			this->Name = L"AdminMainView";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"AdminMainView";
 			this->ResumeLayout(false);
@@ -164,27 +175,23 @@ equired designer variable.
 
 private: System::Void addButton_Click(System::Object^  sender, System::EventArgs^  e) {
 			 SessionData ^ s = gcnew SessionData();
-			 if (textBox2->Text==textBox3->Text) //Checks to see if both password fields match
-			 {
 				//If username already exists in password
 					//this->message->Text=L"Username already exists";
 					//this->message->Visible=true;
 				//else
-	2->Text);
-					this->message->Visible = false;
+				//{
+					AdminEditUserView ^ adminAddScreen = gcnew AdminEditUserView(s);
 				//}
-			 }
-			 else	//Password fields do not match
-			 {
-				this->message->Text = L"Passwords do not match.";
-				thEditUserView ^ adminAddScreen = gcnew AdminEditUserView(s);
-				//gs^  e) {
+
+		 }
+private: System::Void linkLabel1_LinkClicked(System::Object^  sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^  e) {
+			//Calls logout function
+		 }
+private: System::Void removeButton_Click(System::Object^  sender, System::EventArgs^  e) {
 			 if (listBox1->SelectedIndex!=-1)
 				 listBox1->Items->RemoveAt(listBox1->SelectedIndex);
 		 }
 
-};
-}
 private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 			SessionData ^ s = gcnew SessionData();
 			AdminViewUsersView ^ adminViewScreen = gcnew AdminViewUsersView(s);
